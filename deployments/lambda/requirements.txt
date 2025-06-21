@@ -1,0 +1,27 @@
+# Core ML Dependencies (optimized for Lambda)
+torch==2.0.1+cpu
+torchvision==0.15.2+cpu
+transformers==4.30.2
+numpy==1.24.3
+Pillow==9.5.0
+
+# Web Framework
+fastapi==0.100.0
+mangum==0.17.0  # AWS Lambda adapter for FastAPI
+
+# AWS Dependencies
+boto3==1.28.0
+botocore==1.31.0
+
+# Image Processing
+opencv-python-headless==4.8.0.76  # Headless version for Lambda
+
+# Utilities
+python-dotenv==1.0.0
+requests==2.31.0
+
+# Logging
+structlog==23.1.0
+
+# Note: Some dependencies are excluded to reduce package size
+# Install these separately if needed: decord, imageio 

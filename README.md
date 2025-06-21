@@ -4,6 +4,36 @@
 
 > "The bridge between perception and cognition starts with context — and this SDK builds that bridge."
 
+---
+
+## ✨ Key Capabilities
+
+* **V-JEPA-2 Model Serving**
+  Meta’s transformer-based visual encoder for action prediction and future-state estimation.
+
+* **Unified REST API**
+  Accepts base64-encoded images and returns structured intention predictions.
+
+* **Multiplatform Deployment**
+  Docker-ready, Modal Labs compatible, and supports traditional server environments.
+
+* **Intention-Focused Outputs**
+  The model output is formatted to align with the intent pipeline used by [Intentus](https://github.com/Perceptus-Labs/Intentus).
+
+* **FastAPI-Based Inference Layer**
+  Interactive API docs via `/docs`, health checks, and OpenAPI schema generation.
+
+---
+
+## 🧠 How It Works
+
+1. **Client sends a visual frame** (optionally with a goal image)
+2. **Actus encodes the image using V-JEPA-2** and passes it to an intention classifier
+3. **Prediction output is structured** as intention + confidence + metadata
+4. **Can be consumed by Intentus** for further reasoning or feedback-loop orchestration
+
+---
+
 ## 🚀 Quick Start
 
 ### Prerequisites
@@ -39,6 +69,8 @@
    PORT=8000
    WORKERS=1
    ```
+
+---
 
 ## 📁 Project Structure
 
@@ -81,6 +113,8 @@ actus/
 └── README.md
 ```
 
+---
+
 ## 🐳 Local Docker Deployment
 
 ### Build and Run
@@ -103,6 +137,8 @@ curl -X POST http://localhost:8000/analyze \
     "image_data": "base64_encoded_image_data"
   }'
 ```
+
+---
 
 ## ☁️ AWS Lambda Deployment
 
@@ -129,6 +165,8 @@ aws lambda update-function-code \
   --zip-file fileb://deployments/lambda/function.zip
 ```
 
+---
+
 ## 🚀 Modal Labs Deployment
 
 ### Deploy to Modal
@@ -145,6 +183,8 @@ modal token new
 
 ### Access Modal Endpoint
 The Modal deployment will provide a public endpoint URL that you can use in your client applications.
+
+---
 
 ## 🧪 Testing
 
@@ -165,6 +205,8 @@ curl -X POST http://localhost:8000/health
 # Test with sample image
 python scripts/test_api.py
 ```
+
+---
 
 ## 📊 API Documentation
 
@@ -204,34 +246,6 @@ Health check endpoint.
   "timestamp": "2024-01-01T12:00:00Z"
 }
 ```
-
----
-
-## ✨ Key Capabilities
-
-* **V-JEPA-2 Model Serving**
-  Meta’s transformer-based visual encoder for action prediction and future-state estimation.
-
-* **Unified REST API**
-  Accepts base64-encoded images and returns structured intention predictions.
-
-* **Multiplatform Deployment**
-  Docker-ready, Modal Labs compatible, and supports traditional server environments.
-
-* **Intention-Focused Outputs**
-  The model output is formatted to align with the intent pipeline used by [Intentus](https://github.com/Perceptus-Labs/Intentus).
-
-* **FastAPI-Based Inference Layer**
-  Interactive API docs via `/docs`, health checks, and OpenAPI schema generation.
-
----
-
-## 🧠 How It Works
-
-1. **Client sends a visual frame** (optionally with a goal image)
-2. **Actus encodes the image using V-JEPA-2** and passes it to an intention classifier
-3. **Prediction output is structured** as intention + confidence + metadata
-4. **Can be consumed by Intentus** for further reasoning or feedback-loop orchestration
 
 ---
 

@@ -177,7 +177,7 @@ Analyze an image for visual intention using V-JEPA-2.
 ```json
 {
   "image_data": "base64_encoded_image_data",
-  "goal_image": "base64_encoded_goal_image" // optional
+  "goal_image": "base64_encoded_goal_image"
 }
 ```
 
